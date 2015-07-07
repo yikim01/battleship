@@ -1,26 +1,107 @@
 
 body{
-  background-color: black;
+  background-color: #d3d3d3;
 }
-.gridContainer{
-  width: 1024px;
-  height: 863px;
+
+h1 {
+  text-align: center;
+  font-size: 75px;
+  padding-bottom: 0;
   margin: 0 auto;
+  font-family: 'Abril Fatface', cursive;
+}
+
+div#board{
   position: relative;
-  border: 5px solid gray;
+  width: 621px;
+  height: 621px;
+  margin: 0 auto;
+  border: 3px solid #36454f;
 }
 
-
-form{
+div#messagArea{
   position: absolute;
-  bottom: 0px;
-  right: 0px;
-  padding: 15px;
-  background-color: rgb(83, 175, 19);
+  top: 0px;
+  left: 0px;
+  color: rgb(83, 175, 19);
 }
 
-form input {
-    background-color: rgb(152, 207, 113);
-    border-color: rgb(83, 175,19);
-    font-size: 1em;
+/*table {
+  position: absolute;
+  left: 50px;
+  top: 98 px;
+  border-spacing: 0px
+}*/
+
+/*div table tr td.leftPostion{
+  font-size: 40px;
+  font-family: arial, helvetica, sans-serif;
+  font-weight: 500;
+}*/
+
+.cell{
+  width: 65px;
+  height: 65px;
+  border: 2px solid #444646;
+  margin: 0 auto;
+  padding: 0;
+  float: left;
+  text-align: center;
+  line-height: 70px;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #bacbd2;
 }
+
+#left0{
+  background-color: #555555;
+}
+#left1{
+  background-color: #555555;
+}
+#left2{
+  background-color: #555555;
+}
+#left3{
+  background-color: #555555;
+}
+#left4{
+  background-color: #555555;
+}
+#left5{
+  background-color: #555555;
+}
+#left6{
+  background-color: #555555;
+}
+#left7{
+  background-color: #555555;
+}
+#bottom{
+  background-color: #555555;
+}
+
+input {
+  background-color: #6e7f80;
+  border-color: #536872;
+  font-size: 1em;
+}
+
+.left{
+  text-align: center;
+  float: left;
+  background-color: #708090;
+  margin: 0;
+  padding: 0;
+  border: 5px solid #36454f;
+}
+.right{
+  text-align: center;
+  float: right;
+  background-color: #708090;
+  margin: 0;
+  padding: 0;
+  border: 5px solid #36454f;
+}
+
+
