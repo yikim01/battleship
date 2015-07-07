@@ -1,8 +1,10 @@
-## Mario Memory Game
+### Battleship
+##OBJ
+# Take down as many ships as you can before you opponent
 
-# test your memory with with your favorite character from Mario Kart
+##How to play
 
-#OBj
-* match as many of the characters as you can
-
-#How to play
+## user input
+# as a player i wish to see
+# as a player i wish to see
+# as a player i wish to see
