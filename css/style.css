@@ -1,0 +1,26 @@
+
+body{
+  background-color: black;
+}
+.gridContainer{
+  width: 1024px;
+  height: 863px;
+  margin: 0 auto;
+  position: relative;
+  border: 5px solid gray;
+}
+
+
+form{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 15px;
+  background-color: rgb(83, 175, 19);
+}
+
+form input {
+    background-color: rgb(152, 207, 113);
+    border-color: rgb(83, 175,19);
+    font-size: 1em;
+}
