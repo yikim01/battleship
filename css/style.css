@@ -13,8 +13,8 @@ h1 {
 
 div#board{
   position: relative;
-  width: 621px;
-  height: 621px;
+  width: 486px;
+  height: 486px;
   margin: 0 auto;
   border: 3px solid #36454f;
 }
@@ -40,8 +40,8 @@ div#messagArea{
 }*/
 
 .cell{
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   border: 2px solid #444646;
   margin: 0 auto;
   padding: 0;
@@ -88,11 +88,11 @@ input {
 }
 
 .hit{
-  background: url("/battleship/img/battleship.png") no-repeat center center;
+  background: transparent url("/battleship/img/battleship.png") no-repeat center center;
 }
 
 .miss{
-  background: url("/battleship/img/miss.png") no-repeat center center;
+  background: transparent url("/battleship/img/miss.png") no-repeat center center;
 }
 
 .left{
