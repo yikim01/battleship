@@ -13,8 +13,8 @@ h1 {
 
 div#board{
   position: relative;
-  width: 486px;
-  height: 486px;
+  width: 440px;
+  height: 440px;
   margin: 0 auto;
   border: 3px solid #36454f;
 }
@@ -40,8 +40,8 @@ div#messagArea{
 }*/
 
 .cell{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 2px solid #444646;
   margin: 0 auto;
   padding: 0;
@@ -51,34 +51,6 @@ div#messagArea{
   font-size: 40px;
   font-weight: bold;
   background-color: #bacbd2;
-}
-
-#left0{
-  background-color: #555555;
-}
-#left1{
-  background-color: #555555;
-}
-#left2{
-  background-color: #555555;
-}
-#left3{
-  background-color: #555555;
-}
-#left4{
-  background-color: #555555;
-}
-#left5{
-  background-color: #555555;
-}
-#left6{
-  background-color: #555555;
-}
-#left7{
-  background-color: #555555;
-}
-#bottom{
-  background-color: #555555;
 }
 
 input {
