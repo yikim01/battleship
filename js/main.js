@@ -14,18 +14,13 @@ console.log('activate framework!');
 
 // this needs to be optimized to only an array for all ships visible on
 // playing field.
-var shipA = { location: ["10", "20"], hits: ["",""] };
+/*var shipA = { location: ["10", "20"], hits: ["",""] };
 var shipB = { location: ["33", "34", "35"], hits: ["","",""] };
 var shipC = { location: ["62", "63", "64", "65"], hits: ["","","",""] };
-var shipD = { location: ["85", "86", "87", "88", "89"], hits: ["","","","",""] };
+var shipD = { location: ["85", "86", "87", "88", "89"], hits: ["","","","",""] };*/
 
-/* var ships = {
-  location: ["10","20"],
-  hits: ["",""],
-  location: ["33", "34", "35"],
-  hits : ["","","",],
-}
-*/
+
+
 
 var row = [
   ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
@@ -40,6 +35,7 @@ var row = [
   ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
 ];
 
+
 var guess;
 var guesses = 0;
 var hits = 0;
@@ -48,7 +44,7 @@ var isSunk = false;
 
 //function to show that the ships in their locations are being hit
 //tie in guess with a click eventlistener from above after the function guess
-//function: show if it is a hit miss  click again or sunk
+//function: show if it is a hit miss click again or sunk
 
 var ships = function(guess) {
 
@@ -58,10 +54,20 @@ var ships = function(guess) {
     cell[i].addEventListener('click', function(){
       console.log(this);
 
+  var ships = [
+  {location: ["10","20"],
+  hits: ["",""]},
+  {location: ["33", "34", "35"],
+  hits :["","","",]},
+  {location: ["62", "72", "82", "92"],
+  hits :["","","",""]},
+  {location: ["85", "86", "87", "88", "89"],
+  hits :["","","","",""]},
+];
 
   for(var i = 0; i < ships; i++) {
     // var ship should be ships A B C D
-    var ship = this.ships[i];
+    var ships = this.ships[i];
     // locations of ships A B C D
     var location = ship.locations;
     var index = ship.locations.indexOf(guess);
@@ -84,7 +90,6 @@ var ships = function(guess) {
       console.log("click elsewhere");
     }
   }//need to make another else for a "miss"
-
 
 
     });
