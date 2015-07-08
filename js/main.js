@@ -1,16 +1,23 @@
-/******************************************************
+/**********************************************************************
 
- *****      **  ******* ******* ***    ******   ***   *** ***
- *******   **** ******* ******* ***    ****** *** *** *** ***
- *** ***  **  **  ***     ***   ***    ***    ***  ** *** ***
- ******  ******** ***     ***   ***    ******  ***    *******
- ***  ** ******** ***     ***   ***    ***        *** *******
- ******* ***  *** ***     ***   ****** ****** **  *** *** ***
- *****   ***  *** ***     ***   ****** ******   ***   *** ***
+ *****      **  ******* ******* ***    ******   ***   *** *** *** ****
+ *******   **** ******* ******* ***    ****** *** *** *** *** *** ******
+ *** ***  **  **  ***     ***   ***    ***    ***  ** *** *** *** **  **
+ ******  ******** ***     ***   ***    ******  ***    ******* *** *****
+ ***  ** ******** ***     ***   ***    ***        *** ******* *** ***
+ ******* ***  *** ***     ***   ****** ****** **  *** *** *** *** ***
+ *****   ***  *** ***     ***   ****** ******   ***   *** *** *** ***
 
-********************************************************/
+************************************************************************/
 console.log('activate framework!');
 
+
+var cell = document.getElementsByClassName("cell");
+for (var i = 0; i < cell.length; i++) {
+  cell[i].addEventListener('click', function(){
+    console.log(this);
+  });
+}
 
 
 
@@ -20,41 +27,53 @@ var shipC = { location: ["62", "63", "64", "65"], hits: ["","","",""] };
 var shipD = { location: ["85", "86", "87", "88", "89"], hits: ["","","","",""] };
 
 var row = [
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
-  [null, null, null, null, null, null, null, null, null, null]
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
+  ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
 ];
 
+var guess;
 var guesses = 0;
 var hits = 0;
 var newShipLocations;
 var isSunk = false;
 
-displayHit: function(location) {
-  var cell = document.getElementById(location);
-},
-
-
-
-
-
-
-
-
-
-
-var cell = document.getElementsByClassName("cell");
-for (var i = 0; i < cell.length; i++) {
-  cell[i].addEventListener('click', function(){
-    console.log(this);
-  });
+//function to show that the ships in their locations are being hit
+//tie in guess with a click eventlistener from above after the function guess
+//function of the variable guess
+function (guess) {
+  for(var i = 0; i < this.numShips; i++) {
+// var ship should be ships A B C D
+    var ship = this.ships[i];
+// locations of ships A B C D
+    var location = ship.locations;
+    var index = ship.locations.indexOf(guess);
+    if (index >= 0) {
+      ship.hits[index] = "hit";
+      view.displayHit(guess);
+      console.log("hit")
+//      view.displayMessage("HIT!");
+      console.log("HIT!")
+      if ( this.isSunk(ship) ) {
+        view.displayMessage("You sank my battleship!");
+        this.shipsSunk++;
+        console.log("it is sunk")
+      return true;
+//how does it know if my ship is sunk?
+      }
+    //if the user doesnt click where ships are located this will happen
+    } else if (ship.hits[index] === "hit") {
+      view.message("Already hit that! click somewhere else");
+      console.log("click elsewhere");
+    }
+  }//need to make another else for a "miss"
 }
 
 
