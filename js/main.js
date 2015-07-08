@@ -1,30 +1,31 @@
-/**********************************************************************
+/************************************************************************
 
- *****      **  ******* ******* ***    ******   ***   *** *** *** ****
- *******   **** ******* ******* ***    ****** *** *** *** *** *** ******
- *** ***  **  **  ***     ***   ***    ***    ***  ** *** *** *** **  **
+ *****      **  ******* ******* ***    ******   ***   *** *** *** *****
+ *******   **** ******* ******* ***    ****** *** *** *** *** *** *******
+ *** ***  **  **  ***     ***   ***    ***    ***  ** *** *** *** **  ***
  ******  ******** ***     ***   ***    ******  ***    ******* *** *****
  ***  ** ******** ***     ***   ***    ***        *** ******* *** ***
  ******* ***  *** ***     ***   ****** ****** **  *** *** *** *** ***
  *****   ***  *** ***     ***   ****** ******   ***   *** *** *** ***
 
-************************************************************************/
+*************************************************************************/
 console.log('activate framework!');
 
 
-var cell = document.getElementsByClassName("cell");
-for (var i = 0; i < cell.length; i++) {
-  cell[i].addEventListener('click', function(){
-    console.log(this);
-  });
-}
-
-
-
+// this needs to be optimized to only an array for all ships visible on
+// playing field.
 var shipA = { location: ["10", "20"], hits: ["",""] };
 var shipB = { location: ["33", "34", "35"], hits: ["","",""] };
 var shipC = { location: ["62", "63", "64", "65"], hits: ["","","",""] };
 var shipD = { location: ["85", "86", "87", "88", "89"], hits: ["","","","",""] };
+
+/* var ships = {
+  location: ["10","20"],
+  hits: ["",""],
+  location: ["33", "34", "35"],
+  hits : ["","","",],
+}
+*/
 
 var row = [
   ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
@@ -47,36 +48,61 @@ var isSunk = false;
 
 //function to show that the ships in their locations are being hit
 //tie in guess with a click eventlistener from above after the function guess
-//function of the variable guess
-function (guess) {
-  for(var i = 0; i < this.numShips; i++) {
-// var ship should be ships A B C D
+//function: show if it is a hit miss  click again or sunk
+
+var ships = function(guess) {
+
+
+  var cell = document.getElementsByClassName("cell");
+  for (var i = 0; i < cell.length; i++) {
+    cell[i].addEventListener('click', function(){
+      console.log(this);
+
+
+  for(var i = 0; i < ships; i++) {
+    // var ship should be ships A B C D
     var ship = this.ships[i];
-// locations of ships A B C D
+    // locations of ships A B C D
     var location = ship.locations;
     var index = ship.locations.indexOf(guess);
     if (index >= 0) {
       ship.hits[index] = "hit";
       view.displayHit(guess);
-      console.log("hit")
-//      view.displayMessage("HIT!");
-      console.log("HIT!")
+      console.log("hit");
+      //      view.displayMessage("HIT!");
+      console.log("HIT!");
       if ( this.isSunk(ship) ) {
         view.displayMessage("You sank my battleship!");
         this.shipsSunk++;
-        console.log("it is sunk")
+        console.log("it is sunk");
       return true;
-//how does it know if my ship is sunk?
+      //how does it know if my ship is sunk?
       }
-    //if the user doesnt click where ships are located this will happen
+      //if the user doesnt click where ships are located this will happen
     } else if (ship.hits[index] === "hit") {
       view.message("Already hit that! click somewhere else");
       console.log("click elsewhere");
     }
   }//need to make another else for a "miss"
-}
 
 
+
+    });
+  }
+
+
+
+// After eventlistener click is made
+// pass the div id that was clicked on and check against the
+// ships variables and their locations.
+
+
+
+
+
+
+
+}();// This immediately invokes the function expression "ships".
 
 
 
