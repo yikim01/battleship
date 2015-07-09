@@ -35,6 +35,16 @@ var row = [
   ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'],
 ];
 
+var ships = [
+  {location: ["10","20"],
+  hits: ["",""]},
+  {location: ["33", "34", "35"],
+  hits :["","","",]},
+  {location: ["62", "72", "82", "92"],
+  hits :["","","",""]},
+  {location: ["85", "86", "87", "88", "89"],
+  hits :["","","","",""]},
+];
 
 var guess;
 var guesses = 0;
@@ -50,49 +60,35 @@ var ships = function(guess) {
 
 
   var cell = document.getElementsByClassName("cell");
+  var clickEvent = function(){
+
   for (var i = 0; i < cell.length; i++) {
     cell[i].addEventListener('click', function(){
       console.log(this);
+  });
 
-  var ships = [
-  {location: ["10","20"],
-  hits: ["",""]},
-  {location: ["33", "34", "35"],
-  hits :["","","",]},
-  {location: ["62", "72", "82", "92"],
-  hits :["","","",""]},
-  {location: ["85", "86", "87", "88", "89"],
-  hits :["","","","",""]},
-];
-
-  for(var i = 0; i < ships; i++) {
+  for(var i = 0; i < clickEvent; i++) {
     // var ship should be ships A B C D
     var ships = this.ships[i];
     // locations of ships A B C D
-    var location = ship.locations;
+    var location = ships.locations;
     var index = ship.locations.indexOf(guess);
-    if (index >= 0) {
-      ship.hits[index] = "hit";
+    if (cell === location) {
+      ships.hits[index] = "hit";
       view.displayHit(guess);
-      console.log("hit");
-      //      view.displayMessage("HIT!");
+      view.displayMessage("HIT!");
       console.log("HIT!");
-      if ( this.isSunk(ship) ) {
-        view.displayMessage("You sank my battleship!");
-        this.shipsSunk++;
-        console.log("it is sunk");
       return true;
-      //how does it know if my ship is sunk?
-      }
       //if the user doesnt click where ships are located this will happen
-    } else if (ship.hits[index] === "hit") {
-      view.message("Already hit that! click somewhere else");
-      console.log("click elsewhere");
+    } else
+    view.displayMiss(guess);
+    view.displayMessage("You missed muhahaha!");
+    return false;
     }
-  }//need to make another else for a "miss"
+  }
 
 
-    });
+    };
   }
 
 
@@ -107,7 +103,7 @@ var ships = function(guess) {
 
 
 
-}();// This immediately invokes the function expression "ships".
+// This immediately invokes the function expression "ships".
 
 
 
