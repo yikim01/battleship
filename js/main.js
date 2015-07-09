@@ -53,43 +53,29 @@ var isSunk = function(ship) {
   return ship.hits_left === 0;
 }
 
+// get ship locations and store in variable locations
 var getLocations = function() {
   var locations = [];
-  // get the ships locations
-  // 1. for each ship:
-  //   a. get a ship's locations
-  //      ship.location
   for (var i = 0; i < ships.length; i++) {
     locations = locations.concat(ships[i].location)
   };
   return locations;
 }
-
 var locations = getLocations();
 
 // this is what happens when we click
 var whenCellClicked = function() {
-  // if location of ship is clicked "hit"
-  // for (var ships[i] = 0; i < ships.length; i++) {
-
-    console.log(this.id);
-
-    if (locations.indexOf(this.id) > -1){
-      console.log("Hit me!");
-    } else {
-      console.log("Missed me!")
-    }
-    // else "miss"
-    // loop through  the ships to match locations
-    console.log(locations, this.id);
-  // }
+  if (locations.indexOf(this.id) > -1){
+    this.style.backgroundColor = 'red';
+  } else {
+    this.style.backgroundColor = 'darkgray';
+  }
 }
 
-// function to show that the ships in their locations are being hit
-// tie in guess with a click eventlistener from above after the function guess
-// function: show if it is a hit miss click again or sunk
+// set up the board!
 var cells = document.getElementsByClassName("cell");
 
+// attach event listeners!
 for (var i = 0; i < cells.length; i++) {
   cells[i].addEventListener('click', whenCellClicked);
 }
