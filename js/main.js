@@ -58,9 +58,7 @@ var isSunk = false;
 //tie in guess with a click eventlistener from above after the function guess
 //function: show if it is a hit miss click again or sunk
 
-// var ships = function(guess) {
-
-// }
+// var ships = function(guess) {}
 
 var cells = document.getElementsByClassName("cell");
 
@@ -68,7 +66,7 @@ for (var i = 0; i < cells.length; i++) {
   cells[i].addEventListener('click', function(){
     //if location of ship is clicked "hit"
     //for (var ships[i] = 0; i < ships.length; i++) {
-      if (positions.indexOf(parseInt (this.id)) > -1){
+      if (positions.indexOf(parseInt(this.id)) > -1){
         console.log("Hit me!");
       } else {
         console.log("Missed me!")
@@ -110,6 +108,36 @@ for (var i = 0; i < cells.length; i++) {
 
 
 // This immediately invokes the function expression "ships".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

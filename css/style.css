@@ -59,29 +59,28 @@ input {
   font-size: 1em;
 }
 
-.hit{
+.hit {
   background: transparent url("/battleship/img/battleship.png") no-repeat center center;
 }
 
-.miss{
+.miss {
   background: transparent url("/battleship/img/miss.png") no-repeat center center;
 }
 
-.left{
+.left,
+.right {
   text-align: center;
-  float: left;
   background-color: #708090;
   margin: 0;
   padding: 0;
   border: 5px solid #36454f;
-}
-.right{
-  text-align: center;
-  float: right;
-  background-color: #708090;
-  margin: 0;
-  padding: 0;
-  border: 5px solid #36454f;
+  color: white;
+  max-width: 150px;
 }
 
+.left {  float: left; }
+.right { float: right; }
 
+input.guessInput {
+  width: 100px;
+}
