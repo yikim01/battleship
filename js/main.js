@@ -53,25 +53,41 @@ var isSunk = function(ship) {
   return ship.hits_left === 0;
 }
 
+var getLocations = function() {
+  var locations = [];
+  // get the ships locations
+  // 1. for each ship:
+  //   a. get a ship's locations
+  //      ship.location
+  for (var i = 0; i < ships.length; i++) {
+    locations = locations.concat(ships[i].location)
+  };
+  return locations;
+}
+
+var locations = getLocations();
 
 // this is what happens when we click
 var whenCellClicked = function() {
   // if location of ship is clicked "hit"
   // for (var ships[i] = 0; i < ships.length; i++) {
-    if (positions.indexOf(parseInt(this.id)) > -1){
+
+    console.log(this.id);
+
+    if (locations.indexOf(this.id) > -1){
       console.log("Hit me!");
     } else {
       console.log("Missed me!")
     }
     // else "miss"
     // loop through  the ships to match locations
-    console.log(positions, this.id);
+    console.log(locations, this.id);
   // }
 }
 
-//function to show that the ships in their locations are being hit
-//tie in guess with a click eventlistener from above after the function guess
-//function: show if it is a hit miss click again or sunk
+// function to show that the ships in their locations are being hit
+// tie in guess with a click eventlistener from above after the function guess
+// function: show if it is a hit miss click again or sunk
 var cells = document.getElementsByClassName("cell");
 
 for (var i = 0; i < cells.length; i++) {
