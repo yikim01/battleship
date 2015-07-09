@@ -47,8 +47,11 @@ var ships = [
 var guesses = 0;
 var hits    = 0;
 
-var player1Score = 0;
-var player2Score = 0;
+var playerTurn = 0;
+
+var playersScore = [0, 0];
+var numClicks = [0, 0];
+var numHits = [0, 0];
 
 // helper function, takes a ship from the array ships, and tells if it
 // is sunk or not (returns boolean)
@@ -68,22 +71,31 @@ var locations = getLocations();
 
 // this is what happens when we click
 var whenCellClicked = function() {
+  numClicks[playerTurn] += 1;
   // change cell color
   if (locations.indexOf(this.id) > -1){
     this.style.backgroundColor = 'red';
+    numHits[playerTurn] += 1;
   } else {
     this.style.backgroundColor = 'darkgray';
   }
-
-  // update score
-  function updateScore(score, player){
-    //for everytime a player clicks
-    if(document.getElementsByClassName('cell')).clicked == true) {
-    console.log('yay!!')
-    //their hit clicks will be divided by total clicks
-    }
-  }
+  playersScore[playerTurn] = Math.floor(numHits[playerTurn] / numClicks[playerTurn] * 100 + 0.5);
+  playerTurn = Math.abs(playerTurn -1);
+  renderScores();
+  checkForWinner();
 }
+
+function renderScores() {
+  ("player-1-score").innerHTML=playersScore[0];
+  ("player-2-score").innerHTML=playersScore[1];
+  console.log(numClicks, numHits, playersScore, playerTurn);
+}
+
+function checkForWinner() {
+
+
+}
+
 
 // set up the board!
 var cells = document.getElementsByClassName("cell");
