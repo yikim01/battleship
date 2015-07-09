@@ -86,8 +86,8 @@ var whenCellClicked = function() {
 }
 
 function renderScores() {
-  ("player-1-score").innerHTML=playersScore[0];
-  ("player-2-score").innerHTML=playersScore[1];
+  document.getElementById("player-1-score").innerHTML=playersScore[0];
+  document.getElementById("player-2-score").innerHTML=playersScore[1];
   console.log(numClicks, numHits, playersScore, playerTurn);
 }
 

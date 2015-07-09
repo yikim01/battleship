@@ -1,3 +1,15 @@
+I am working on building my own version of battleship and right now I am stuck on how to update my score every time a player clicks, so far this is all i have.
+var guesses = 0; var hits = 0;
+var player1Score = 0; var player2Score = 0;
+// helper function, takes a ship from the array ships, and tells if it // is sunk or not (returns boolean) var isSunk = function(ship) { return ship.hits_left === 0; }
+// get ship locations and store in variable locations var getLocations = function() { var locations = []; for (var i = 0; i < ships.length; i++) { locations = locations.concat(ships[i].location) }; return locations; } var locations = getLocations();
+// this is what happens when we click var whenCellClicked = function() { // change cell color if (locations.indexOf(this.id) > -1){ this.style.backgroundColor = 'red'; } else { this.style.backgroundColor = 'darkgray'; }
+// update score function updateScore(score, player){ //for everytime a player clicks //their hit clicks will be divided by total clicks }
+I want it so when a player clicks, their score would be the number to hits divided by the number of clicks based on the player any help would be great! thanks!
+
+
+
+
 /************************************************************************
 
  *****      **  ******* ******* ***    ******   ***   *** *** *** *****
