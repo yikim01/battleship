@@ -72,7 +72,7 @@ input {
   text-align: center;
   background-color: #708090;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   border: 5px solid #36454f;
   color: white;
   max-width: 150px;
@@ -81,6 +81,6 @@ input {
 .left {  float: left; }
 .right { float: right; }
 
-input.guessInput {
+/*input.guessInput {
   width: 100px;
-}
+}*/

@@ -1,9 +1,9 @@
 /************************************************************************
 
- *****      **  ******* ******* ***    ******   ***   *** *** *** *****
- *******   **** ******* ******* ***    ****** *** *** *** *** *** *******
- *** ***  **  **  ***     ***   ***    ***    ***  ** *** *** *** **  ***
- ******  ******** ***     ***   ***    ******  ***    ******* *** *****
+ *****      **  ******* ******* ***    ******   ***   *** *** *** ******
+ *******   **** ******* ******* ***    ****** *** *** *** *** *** **   **
+ *** ***  **  **  ***     ***   ***    ***    ***  ** *** *** *** **   **
+ ******  ******** ***     ***   ***    ******  ***    ******* *** ******
  ***  ** ******** ***     ***   ***    ***        *** ******* *** ***
  ******* ***  *** ***     ***   ****** ****** **  *** *** *** *** ***
  *****   ***  *** ***     ***   ****** ******   ***   *** *** *** ***
@@ -47,6 +47,9 @@ var ships = [
 var guesses = 0;
 var hits    = 0;
 
+var player1Score = 0;
+var player2Score = 0;
+
 // helper function, takes a ship from the array ships, and tells if it
 // is sunk or not (returns boolean)
 var isSunk = function(ship) {
@@ -65,10 +68,20 @@ var locations = getLocations();
 
 // this is what happens when we click
 var whenCellClicked = function() {
+  // change cell color
   if (locations.indexOf(this.id) > -1){
     this.style.backgroundColor = 'red';
   } else {
     this.style.backgroundColor = 'darkgray';
+  }
+
+  // update score
+  function updateScore(score, player){
+    //for everytime a player clicks
+    if(document.getElementsByClassName('cell')).clicked == true) {
+    console.log('yay!!')
+    //their hit clicks will be divided by total clicks
+    }
   }
 }
 
