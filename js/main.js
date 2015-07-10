@@ -87,7 +87,9 @@ var whenCellClicked = function() {
   } else {
     this.style.backgroundColor = 'darkgray';
   }
-
+  if (ships[0].hits_left === 0 && ships[1].hits_left === 0 && ships[2].hits_left === 0 && ships[3].hits_left === 0 ); {
+    console.log ("GAME OVER!");
+  }
   //alternates players turn
   playersScore[playerTurn] = Math.floor(numHits[playerTurn] / numClicks[playerTurn] * 100 + 0.5);
   playerTurn = Math.abs(playerTurn -1);
@@ -110,12 +112,11 @@ function renderScores() {
 }
 
 function checkForWinner(ships) {
-  if (ships.hits_left === 0) {
 
   }
   //if all ships are hit
   //played with the higher score wins
-}
+
 
 // set up the board!
 var cells = document.getElementsByClassName("cell");

@@ -17,6 +17,7 @@ div#board{
   height: 440px;
   margin: 0 auto;
   border: 3px solid #36454f;
+  border-radius: 10px;
 }
 
 div#messagArea{
@@ -43,6 +44,7 @@ div#messagArea{
   width: 40px;
   height: 40px;
   border: 2px solid #444646;
+  border-radius: 5px;
   margin: 0 auto;
   padding: 0;
   float: left;
@@ -74,6 +76,7 @@ input {
   margin: 0;
   padding: 5px;
   border: 5px solid #36454f;
+  border-radius: 8px;
   color: white;
   max-width: 150px;
 }
