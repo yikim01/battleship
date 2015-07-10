@@ -44,6 +44,9 @@ var ships = [
   }
 ];
 
+
+var positions = [10 ,20];
+
 var guesses = 0;
 var hits    = 0;
 
@@ -60,29 +63,44 @@ var isSunk = function(ship) {
 }
 
 // get ship locations and store in variable locations
-var getLocations = function() {
+var getLocations = function(ships) {
   var locations = [];
   for (var i = 0; i < ships.length; i++) {
     locations = locations.concat(ships[i].location)
   };
   return locations;
 }
-var locations = getLocations();
+var locations = getLocations(ships);
 
 // this is what happens when we click
 var whenCellClicked = function() {
   numClicks[playerTurn] += 1;
   // change cell color
   if (locations.indexOf(this.id) > -1){
+    if (locations.indexOf(this.id) < 2) ships[0].hits_left--;
+    if (locations.indexOf(this.id) < 3) ships[1].hits_left--;
+    if (locations.indexOf(this.id) < 4) ships[2].hits_left--;
+    if (locations.indexOf(this.id) < 5) ships[3].hits_left--;
+    console.log(ships);
     this.style.backgroundColor = 'red';
     numHits[playerTurn] += 1;
   } else {
     this.style.backgroundColor = 'darkgray';
   }
+
+  //alternates players turn
   playersScore[playerTurn] = Math.floor(numHits[playerTurn] / numClicks[playerTurn] * 100 + 0.5);
   playerTurn = Math.abs(playerTurn -1);
   renderScores();
   checkForWinner();
+}
+
+function whosTurn(playerTurn) {
+  if (playerTurn === 0) {
+    return "Its your turn Player 1";
+  } else if (playerTurn != 0) {
+    return "Its your turn Player 2";
+  }
 }
 
 function renderScores() {
@@ -91,11 +109,13 @@ function renderScores() {
   console.log(numClicks, numHits, playersScore, playerTurn);
 }
 
-function checkForWinner() {
+function checkForWinner(ships) {
+  if (ships.hits_left === 0) {
 
-
+  }
+  //if all ships are hit
+  //played with the higher score wins
 }
-
 
 // set up the board!
 var cells = document.getElementsByClassName("cell");
